@@ -47,7 +47,7 @@ type PhoneType = {
   model: string;
   colors: string[];
   price: number;
-  features: PhoneFeaturesType;
+  feature: PhoneFeaturesType;
 };
 
 const iphone16Features:PhoneFeaturesType = {
@@ -86,7 +86,7 @@ const iphone16: PhoneType = {
     model: 'iPhone 16',
     colors: ['Black', 'White', 'Pink', 'Teal', 'Ultramarine'],
     price: 569.81,
-    features: iphone16Features
+    feature: iphone16Features
 };
 
 console.log(iphone16Features);
