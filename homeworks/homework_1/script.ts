@@ -92,5 +92,3 @@ const iphone16: PhoneType = {
 console.log(iphone16Features);
 console.log('-----------------------------------------------');
 console.log(iphone16);
-
-
