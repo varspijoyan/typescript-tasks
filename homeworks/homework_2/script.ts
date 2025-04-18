@@ -9,12 +9,12 @@ interface IAnnounceDate<S extends string, N extends number> {
   date: S;
 }
 
-interface IStatus<T, S extends string> {
+interface IStatus<T extends PhoneStatus, S extends string> {
   type: T;
   release: S;
 }
 
-interface ILaunch<S extends string, N extends number, T> {
+interface ILaunch<S extends string, N extends number, T extends PhoneStatus> {
   announceDate: IAnnounceDate<S, N>;
   status: IStatus<T, S>;
 }
