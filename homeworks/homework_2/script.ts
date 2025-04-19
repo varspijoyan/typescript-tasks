@@ -4,63 +4,63 @@ type PhoneStatus = "Available" | "Discontinued";
 
 type FeatureType = "launch" | "body" | "display" | "platform" | "memory";
 
-interface IAnnounceDate<S extends string, N extends number> {
-  year: N;
-  date: S;
+interface IAnnounceDate {
+  year: number;
+  date: string;
 }
 
-interface IStatus<T extends PhoneStatus, S extends string> {
+interface IStatus<T> {
   type: T;
-  release: S;
+  release: string;
 }
 
-interface ILaunch<S extends string, N extends number, T extends PhoneStatus> {
-  announceDate: IAnnounceDate<S, N>;
-  status: IStatus<T, S>;
+interface ILaunch<T> {
+  announceDate: IAnnounceDate;
+  status: IStatus<T>;
 }
 
-interface IBody<N extends number, S extends Array<string>> {
-  weight: N;
-  builds: S;
+interface IBody {
+  weight: number;
+  builds: Array<string>;
 }
 
-interface IDisplay<A extends Array<string>, N extends number, S extends string> {
-  types: A;
-  size: N;
-  protection: S;
+interface IDisplay {
+  types: Array<string>;
+  size: number;
+  protection: string;
 }
 
-interface IPlatform<S extends string> {
-  os: S;
-  chipset: S;
-  cpu: S;
-  gpu: S;
+interface IPlatform {
+  os: string;
+  chipset: string;
+  cpu: string;
+  gpu: string;
 }
 
-interface IMemory<A extends Array<string>, B extends boolean> {
-  hasCardSlot: B;
-  internals: A;
+interface IMemory{
+  hasCardSlot: boolean;
+  internals: Array<string>;
 }
 
 interface IFeature {
-  launch: ILaunch<string, number, PhoneStatus>;
-  body: IBody<number, string[]>;
-  display: IDisplay<string[], number, string>;
-  platform: IPlatform<string>;
-  memory: IMemory<string[], boolean>;
+  launch: ILaunch<PhoneStatus>;
+  body: IBody;
+  display: IDisplay;
+  platform: IPlatform;
+  memory: IMemory;
 }
 
 // Key will be the FeatureType union values, values will be the value Types from IFeature
 type FeatureRecord = Record<FeatureType, IFeature[FeatureType]>;
 
-interface IPhone<S extends string, T1, N extends number, T2> {
-  model: S;
+interface IPhone<T1, T2> {
+  model: string;
   color: T1;
-  price: N;
+  price: number;
   feature: T2;
 }
 
-class Phone implements IPhone<string, PhoneColor, number, FeatureRecord> {
+class Phone implements IPhone<PhoneColor, FeatureRecord> {
   model: string;
   color: PhoneColor;
   price: number;
