@@ -14,9 +14,9 @@ interface IStatus<T> {
   release: string;
 }
 
-interface ILaunch<T> {
+interface ILaunch {
   announceDate: IAnnounceDate;
-  status: IStatus<T>;
+  status: IStatus<PhoneStatus>;
 }
 
 interface IBody {
@@ -43,7 +43,7 @@ interface IMemory{
 }
 
 interface IFeature {
-  launch: ILaunch<PhoneStatus>;
+  launch: ILaunch;
   body: IBody;
   display: IDisplay;
   platform: IPlatform;
